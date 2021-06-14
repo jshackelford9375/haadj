@@ -16,10 +16,26 @@
 <meta property="twitter:description" content="You never win">
 <meta property="twitter:image" content="https://winadmins.io/haadj2.gif">
     <style>
-	.slides { width: 100%; }
+    .slides { 
+        object-fit:contain;
+        align-items: center;
+        margin-left:auto;
+        margin-right:auto;
+    }
     .slides-hidden { display : none; }
+
+    p.shruggie {
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+    }
+
+    section {
+        display: flex;
+        height:100%;
+    }
     </style>
-	<script>
+    <script>
     addEventListener("load",() => { // "load" is safe but "DOMContentLoaded" starts earlier
         var index = 0;
         const slides = document.querySelectorAll(".slides");
@@ -31,6 +47,11 @@
             setTimeout(nextSlide, 4000);
         }
     });
+    addEventListener("load", ()=>{
+        // Hide the Shruggie once the GIFs are loaded in
+        document.querySelectorAll("p.shruggie").forEach(elem=>console.log(elem.style.display = "none"));
+        //document.querySelectorAll(".slides").forEach( varName => varName.hidden = true)
+        });
 </script>
 <section>
     <img class="slides slides-hidden" src="https://winadmins.io/haadj2.gif">
@@ -39,7 +60,7 @@
 </section>
 </head>
 <body>
-<p>
+<p class="shruggie">
 ¯\_(ツ)_/¯
 </p>
 </body></html>
