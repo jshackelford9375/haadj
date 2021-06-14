@@ -16,20 +16,27 @@
 <meta property="twitter:description" content="You never win">
 <meta property="twitter:image" content="https://winadmins.io/haadj2.gif">
     <style>
-    body {
-        background-image: url("https://winadmins.io/haadj2.gif");
-        BACKGROUND-POSITION: CENTER center;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    body, html {
-        height: 100%;
-        margin: 0;
-    }
-    p { 
-        display:none 
-    }
+	.slides { width: 100%; }
+    .slides-hidden { display : none; }
     </style>
+	<script>
+    addEventListener("load",() => { // "load" is safe but "DOMContentLoaded" starts earlier
+        var index = 0;
+        const slides = document.querySelectorAll(".slides");
+        const classHide = "slides-hidden", count = slides.length;
+        nextSlide();
+        function nextSlide() {
+            slides[(index ++) % count].classList.add(classHide);
+            slides[index % count].classList.remove(classHide);
+            setTimeout(nextSlide, 4000);
+        }
+    });
+</script>
+<section>
+    <img class="slides slides-hidden" src="https://winadmins.io/haadj2.gif">
+    <img class="slides slides-hidden" src="https://winadmins.io/haadj3.gif">
+    <img class="slides slides-hidden" src="https://winadmins.io/haadj1.gif">
+</section>
 </head>
 <body>
 <p>
